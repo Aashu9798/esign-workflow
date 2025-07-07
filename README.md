@@ -46,67 +46,77 @@ This project simulates a **step-by-step signer flow** with role-based logic:
 
 ---
 
-🧪 API Endpoints
-1. 📤 Upload PDF
-POST /pdf/upload
+## 🧪 API Endpoints
 
-Request Type: multipart/form-data
+### 1. 📤 Upload PDF  
+**POST** `/pdf/upload`
 
-Form Field: file (PDF file)
+- **Request Type**: `multipart/form-data`  
+- **Form Field**: `file` (PDF file)
 
-✅ Returns:
+✅ **Returns**:
+\`\`\`json
 {
   "message": "PDF uploaded successfully",
   "filePath": "uploads/file-<timestamp>.pdf"
 }
+\`\`\`
 
+---
 
-2. 👁️ Preview PDF
-GET /pdf/preview/:filename
+### 2. 👁️ Preview PDF  
+**GET** `/pdf/preview/:filename`
 
 Example:
+\`\`\`
 /pdf/preview/file-123456.pdf
+\`\`\`
 
 ✅ Opens/downloads the PDF.
 
+---
 
-3. ✍️ Submit for eSign (Simulated)
-POST /esign/submit
+### 3. ✍️ Submit for eSign (Simulated)  
+**POST** `/esign/submit`
 
-JSON Body:
-  {
-    "pdfPath": "uploads/file-xxx.pdf",
-    "role1Email": "a@domain.com",
-    "role2Email": "b@domain.com",
-    "role3Email": "c@domain.com"
-  }
+**JSON Body**:
+\`\`\`json
+{
+  "pdfPath": "uploads/file-xxx.pdf",
+  "role1Email": "a@domain.com",
+  "role2Email": "b@domain.com",
+  "role3Email": "c@domain.com"
+}
+\`\`\`
 
-✅ Returns
-  {
-    "message": "eSign flow simulated successfully",
-    "submittedFile": "uploads/file-xxx.pdf",
-    "signerFlow": [
-      {
-        "step": 1,
-        "role": "Role1",
-        "email": "a@domain.com",
-        "action": "Uploaded PDF and added tags for Role2 and Role3"
-      },
-      {
-        "step": 2,
-        "role": "Role2",
-        "email": "b@domain.com",
-        "action": "Signed and forwarded to Role3"
-      },
-      {
-        "step": 3,
-        "role": "Role3",
-        "email": "c@domain.com",
-        "action": "Signed the document"
-      }
-    ],
-    "status": "Simulated and ready for signature"
-  }
+✅ **Returns**:
+\`\`\`json
+{
+  "message": "eSign flow simulated successfully",
+  "submittedFile": "uploads/file-xxx.pdf",
+  "signerFlow": [
+    {
+      "step": 1,
+      "role": "Role1",
+      "email": "a@domain.com",
+      "action": "Uploaded PDF and added tags for Role2 and Role3"
+    },
+    {
+      "step": 2,
+      "role": "Role2",
+      "email": "b@domain.com",
+      "action": "Signed and forwarded to Role3"
+    },
+    {
+      "step": 3,
+      "role": "Role3",
+      "email": "c@domain.com",
+      "action": "Signed the document"
+    }
+  ],
+  "status": "Simulated and ready for signature"
+}
+\`\`\`
 
 
 ⚠️ Note on Documenso API
