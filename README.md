@@ -54,10 +54,44 @@ This project simulates a **step-by-step signer flow** with role-based logic:
 POST /pdf/upload
 
 Request Type: multipart/form-data
+
 Form Field: file (PDF file)
 
-✅ **Returns**
+✅ Returns
+{
+  "message": "PDF uploaded successfully",
+  "filePath": "uploads/file-<timestamp>.pdf"
+}
+
+### 2. 👁️ Preview PDF
+
+GET /pdf/preview/:filename
+
+Example:
+/pdf/preview/file-123456.pdf
+
+✅ Opens/downloads the PDF.
+
+
+### 3. ✍️ Submit for eSign (Simulated)
+
+POST /esign/submit
+
+JSON Body:
+{
+  "pdfPath": "uploads/file-xxx.pdf",
+  "role1Email": "a@domain.com",
+  "role2Email": "b@domain.com",
+  "role3Email": "c@domain.com"
+}
+
+✅ Returns
+{
+  "message": "eSign flow simulated successfully",
+  "submittedFile": "uploads/file-xxx.pdf",
+  "signerFlow": [
     {
+      "step": 1,
       "role": "Role1",
       "email": "a@domain.com",
       "action": "Uploaded PDF and added tags for Role2 and Role3"
@@ -78,7 +112,7 @@ Form Field: file (PDF file)
   "status": "Simulated and ready for signature"
 }
 
-```
+---
 
 ---
 
@@ -138,7 +172,7 @@ This backend-only app fulfills the following:
 ✅ Responds with flow details
 ✅ Is fully testable via Postman and unit tests
 
-
+---
 
 ---
 
@@ -163,52 +197,4 @@ Let me know if you want the follow-up `git add`, `commit`, and `push` command to
 
 ---
 
-```json
-{
-  "message": "PDF uploaded successfully",
-  "filePath": "uploads/file-<timestamp>.pdf"
-}
-```
-
 ---
-
-### 2. Preview PDF
-
-```
-GET /pdf/preview/:filename
-```
-
-Example:
-```
-/pdf/preview/file-123456.pdf
-```
-
-✅ Opens/downloads the PDF.
-
----
-
-### 3. Submit for eSign (Simulated)
-
-```
-POST /esign/submit
-```
-
-**Request Body (JSON):**
-```json
-{
-  "pdfPath": "uploads/file-xxx.pdf",
-  "role1Email": "a@domain.com",
-  "role2Email": "b@domain.com",
-  "role3Email": "c@domain.com"
-}
-
-```
-
-✅ **Returns**
-```json
-{
-  "message": "eSign flow simulated successfully",
-  "submittedFile": "uploads/file-xxx.pdf",
-  "signerFlow": [
-    {
-      "step": 1,
