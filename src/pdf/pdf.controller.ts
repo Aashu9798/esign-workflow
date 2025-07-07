@@ -22,10 +22,16 @@ export class PdfController {
       },
     }),
   }))
+  
   async uploadPdf(@UploadedFile() file: Express.Multer.File) {
-    // Save file path info to database if needed, or return the file info directly.
-    return { message: 'PDF uploaded successfully', filePath: file.path };
+  console.log('Uploaded file:', file);
+  if (!file) {
+    throw new Error('No file uploaded');
   }
+  return { message: 'PDF uploaded successfully', filePath: file.path };
+}
+
+
 
   // Endpoint to preview PDF (simply serve the file)
   @Get('preview/:filename')
