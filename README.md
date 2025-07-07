@@ -121,7 +121,6 @@ Example:
 ---
 
 ## ⚠️ Note on Documenso API
-
 Although the assignment mentions documenso.com, it is not publicly hosted.
 
 Therefore:
