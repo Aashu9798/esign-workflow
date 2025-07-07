@@ -28,6 +28,7 @@ It allows users to:
 | 👀 PDF Preview     | Access uploaded PDF with `GET /pdf/preview/:filename` |
 | ✍️ eSign Submit    | Simulates sending PDF for signature by 3 roles        |
 | ⚙️ Backend-only    | No frontend required                                  | 
+|✅ Unit Tests       |Simple test cases using Jest                           |
 
 ---
 
@@ -99,14 +100,30 @@ POST /esign/submit
 ```json
 {
   "message": "eSign flow simulated successfully",
-  "submittedFile": "uploads/file-123456.pdf",
-  "signers": [
-    "a@example.com",
-    "b@example.com",
-    "c@example.com"
+  "submittedFile": "uploads/file-xxx.pdf",
+  "signerFlow": [
+    {
+      "step": 1,
+      "role": "Role1",
+      "email": "a@domain.com",
+      "action": "Uploaded PDF and added tags for Role2 and Role3"
+    },
+    {
+      "step": 2,
+      "role": "Role2",
+      "email": "b@domain.com",
+      "action": "Signed and forwarded to Role3"
+    },
+    {
+      "step": 3,
+      "role": "Role3",
+      "email": "c@domain.com",
+      "action": "Signed the document"
+    }
   ],
   "status": "Simulated and ready for signature"
 }
+
 ```
 
 ---
@@ -125,7 +142,7 @@ For this reason:
 ## 🚀 How to Run
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Aashu9798/esign-workflow.git
 cd esign-workflow
 npm install
 mkdir uploads
@@ -139,6 +156,10 @@ npm run start
 ```bash
 npm run test
 ```
+✅ Example Output:
+PASS  src/app.controller.spec.ts
+PASS  src/esign/esign.service.spec.ts
+
 
 ---
 
@@ -146,10 +167,12 @@ npm run test
 
 ```
 src/
- ┣ pdf/         ← Upload & preview service
- ┣ esign/       ← eSign submit simulation
- ┗ app.module.ts
-uploads/         ← Stored PDF files
+ ┣ pdf/             ← Upload & preview logic
+ ┣ esign/           ← Simulate signature flow
+ ┣ app.controller.ts
+ ┣ app.module.ts
+uploads/             ← Uploaded PDF storage
+
 ```
 
 ---

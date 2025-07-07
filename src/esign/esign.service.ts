@@ -4,9 +4,24 @@ import { Injectable } from '@nestjs/common';
 export class EsignService {
   async submitForEsign(payload: any): Promise<any> {
     const fakeTags = [
-      { x: 100, y: 150, page: 1, role: 'Role1' },
-      { x: 200, y: 250, page: 2, role: 'Role2' },
-      { x: 300, y: 350, page: 3, role: 'Role3' },
+      {
+        step: 1,
+        role: 'Role1',
+        email: 'a@domain.com',
+        action: 'Uploaded PDF and added tags for Role2 and Role3',
+      },
+      {
+        step: 2,
+        role: 'Role2',
+        email: 'b@domain.com',
+        action: 'Signed and forwarded to Role3',
+      },
+      {
+          step: 3,
+          role: 'Role3',
+          email: 'c@domain.com',
+          action: 'Signed the document',
+      }    
     ];
 
     return {
