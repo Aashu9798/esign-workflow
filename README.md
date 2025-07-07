@@ -57,55 +57,7 @@ Request Type: multipart/form-data
 Form Field: file (PDF file)
 
 ✅ **Returns**
-```json
-{
-  "message": "PDF uploaded successfully",
-  "filePath": "uploads/file-<timestamp>.pdf"
-}
-```
-
----
-
-### 2. Preview PDF
-
-```
-GET /pdf/preview/:filename
-```
-
-Example:
-```
-/pdf/preview/file-123456.pdf
-```
-
-✅ Opens/downloads the PDF.
-
----
-
-### 3. Submit for eSign (Simulated)
-
-```
-POST /esign/submit
-```
-
-**Request Body (JSON):**
-```json
-{
-  "pdfPath": "uploads/file-xxx.pdf",
-  "role1Email": "a@domain.com",
-  "role2Email": "b@domain.com",
-  "role3Email": "c@domain.com"
-}
-
-```
-
-✅ **Returns**
-```json
-{
-  "message": "eSign flow simulated successfully",
-  "submittedFile": "uploads/file-xxx.pdf",
-  "signerFlow": [
     {
-      "step": 1,
       "role": "Role1",
       "email": "a@domain.com",
       "action": "Uploaded PDF and added tags for Role2 and Role3"
@@ -210,3 +162,53 @@ It handles uploading, previewing, and simulating role-based signing — cleanly 
 Let me know if you want the follow-up `git add`, `commit`, and `push` command too.
 
 ---
+
+```json
+{
+  "message": "PDF uploaded successfully",
+  "filePath": "uploads/file-<timestamp>.pdf"
+}
+```
+
+---
+
+### 2. Preview PDF
+
+```
+GET /pdf/preview/:filename
+```
+
+Example:
+```
+/pdf/preview/file-123456.pdf
+```
+
+✅ Opens/downloads the PDF.
+
+---
+
+### 3. Submit for eSign (Simulated)
+
+```
+POST /esign/submit
+```
+
+**Request Body (JSON):**
+```json
+{
+  "pdfPath": "uploads/file-xxx.pdf",
+  "role1Email": "a@domain.com",
+  "role2Email": "b@domain.com",
+  "role3Email": "c@domain.com"
+}
+
+```
+
+✅ **Returns**
+```json
+{
+  "message": "eSign flow simulated successfully",
+  "submittedFile": "uploads/file-xxx.pdf",
+  "signerFlow": [
+    {
+      "step": 1,
