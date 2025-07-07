@@ -46,25 +46,22 @@ This project simulates a **step-by-step signer flow** with role-based logic:
 
 ---
 
-## 🧪 API Endpoints
-
-### 1. 📤 Upload PDF
-
-```http
+🧪 API Endpoints
+1. 📤 Upload PDF
 POST /pdf/upload
 
 Request Type: multipart/form-data
 
 Form Field: file (PDF file)
 
-✅ Returns
+✅ Returns:
 {
   "message": "PDF uploaded successfully",
   "filePath": "uploads/file-<timestamp>.pdf"
 }
 
-### 2. 👁️ Preview PDF
 
+2. 👁️ Preview PDF
 GET /pdf/preview/:filename
 
 Example:
@@ -73,8 +70,7 @@ Example:
 ✅ Opens/downloads the PDF.
 
 
-### 3. ✍️ Submit for eSign (Simulated)
-
+3. ✍️ Submit for eSign (Simulated)
 POST /esign/submit
 
 JSON Body:
@@ -112,21 +108,17 @@ JSON Body:
   "status": "Simulated and ready for signature"
 }
 
----
+⚠️ Note on Documenso API
+Although the assignment mentions documenso.com, it is not publicly hosted.
 
----
+Therefore:
 
-## ⚠️ Note on Documenso API
-
-Although the assignment mentions documenso.com, it is not publicly hosted. Therefore:
-For this reason:
-
--✅ This backend simulates eSign API calls
+✅ This backend simulates eSign API calls
 🧪 Integration-ready: Real eSign API can be integrated later
 
 ---
 
-## 🚀 How to Run
+🚀 How to Run
 
 ```bash
 git clone https://github.com/your-username/esign-workflow.git
@@ -138,7 +130,7 @@ npm run start
 
 ---
 
-## 🧪 Run Unit Tests (Optional)
+🧪 Run Unit Tests (Optional)
 Simple unit tests included for the controller and service.
 
 ```bash
