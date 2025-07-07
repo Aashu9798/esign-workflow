@@ -74,39 +74,40 @@ Example:
 POST /esign/submit
 
 JSON Body:
-{
-  "pdfPath": "uploads/file-xxx.pdf",
-  "role1Email": "a@domain.com",
-  "role2Email": "b@domain.com",
-  "role3Email": "c@domain.com"
-}
+  {
+    "pdfPath": "uploads/file-xxx.pdf",
+    "role1Email": "a@domain.com",
+    "role2Email": "b@domain.com",
+    "role3Email": "c@domain.com"
+  }
 
 ✅ Returns
-{
-  "message": "eSign flow simulated successfully",
-  "submittedFile": "uploads/file-xxx.pdf",
-  "signerFlow": [
-    {
-      "step": 1,
-      "role": "Role1",
-      "email": "a@domain.com",
-      "action": "Uploaded PDF and added tags for Role2 and Role3"
-    },
-    {
-      "step": 2,
-      "role": "Role2",
-      "email": "b@domain.com",
-      "action": "Signed and forwarded to Role3"
-    },
-    {
-      "step": 3,
-      "role": "Role3",
-      "email": "c@domain.com",
-      "action": "Signed the document"
-    }
-  ],
-  "status": "Simulated and ready for signature"
-}
+  {
+    "message": "eSign flow simulated successfully",
+    "submittedFile": "uploads/file-xxx.pdf",
+    "signerFlow": [
+      {
+        "step": 1,
+        "role": "Role1",
+        "email": "a@domain.com",
+        "action": "Uploaded PDF and added tags for Role2 and Role3"
+      },
+      {
+        "step": 2,
+        "role": "Role2",
+        "email": "b@domain.com",
+        "action": "Signed and forwarded to Role3"
+      },
+      {
+        "step": 3,
+        "role": "Role3",
+        "email": "c@domain.com",
+        "action": "Signed the document"
+      }
+    ],
+    "status": "Simulated and ready for signature"
+  }
+
 
 ⚠️ Note on Documenso API
 Although the assignment mentions documenso.com, it is not publicly hosted.
