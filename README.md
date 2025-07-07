@@ -118,64 +118,65 @@ Example:
 }
 \`\`\`
 
+---
 
-⚠️ Note on Documenso API
+## ⚠️ Note on Documenso API
+
 Although the assignment mentions documenso.com, it is not publicly hosted.
 
 Therefore:
 
-✅ This backend simulates eSign API calls
-🧪 Integration-ready: Real eSign API can be integrated later
+- ✅ This backend simulates eSign API calls  
+- 🧪 Integration-ready: Real eSign API can be integrated later
 
 ---
 
-🚀 How to Run
+## 🚀 How to Run
 
-```bash
+\`\`\`bash
 git clone https://github.com/your-username/esign-workflow.git
 cd esign-workflow
 npm install
 mkdir uploads
 npm run start
-```
+\`\`\`
 
 ---
 
-🧪 Run Unit Tests (Optional)
+## 🧪 Run Unit Tests (Optional)
+
 Simple unit tests included for the controller and service.
 
-```bash
+\`\`\`bash
 npm run test
-```
+\`\`\`
 
 ✅ Example Output:
-PASS  src/app.controller.spec.ts
+PASS  src/app.controller.spec.ts  
 PASS  src/esign/esign.service.spec.ts
 
 ---
 
 ## 📁 Folder Structure (Simplified)
 
-```
+\`\`\`
 src/
  ┣ pdf/             ← Upload & preview logic
  ┣ esign/           ← Simulate signature flow
  ┣ app.controller.ts
  ┣ app.module.ts
 uploads/             ← Uploaded PDF storage
-
-
-```
-
-✅ Final Output
-This backend-only app fulfills the following:
-
-✅ Handles PDF upload & preview
-✅ Simulates signer logic with Role 1 → Role 2 → Role 3
-✅ Responds with flow details
-✅ Is fully testable via Postman and unit tests
+\`\`\`
 
 ---
+
+✅ Final Output  
+This backend-only app fulfills the following:
+
+- ✅ Handles PDF upload & preview  
+- ✅ Simulates signer logic with Role 1 → Role 2 → Role 3  
+- ✅ Responds with flow details  
+- ✅ Is fully testable via Postman and unit tests  
 
 ---
 
@@ -188,16 +189,12 @@ It handles uploading, previewing, and simulating role-based signing — cleanly 
 
 ## 👤 Author
 
-- 💼 Developer: Aashu Kumar
-- 📧 Email: aashuraaz727400@gmail.com
-- 🔗 GitHub: https://github.com/aashu9798
+- 💼 Developer: Aashu Kumar  
+- 📧 Email: aashuraaz727400@gmail.com  
+- 🔗 GitHub: https://github.com/aashu9798  
 
 ---
 
 ## 📌 License
 
-Let me know if you want the follow-up `git add`, `commit`, and `push` command too.
-
----
-
----
+This project is licensed under MIT License.
